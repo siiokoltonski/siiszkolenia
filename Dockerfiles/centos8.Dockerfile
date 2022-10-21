@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM centos:centos8
 
 ARG user=jenkins
 ARG group=jenkins
@@ -11,5 +11,5 @@ ENV JENKINS_AGENT_HOME ${JENKINS_AGENT_HOME}
 RUN groupadd -g ${gid} ${group} \
     && useradd -d "${JENKINS_AGENT_HOME}" -u "${uid}" -g "${gid}" -m -s /bin/bash "${user}"
 
-RUN apt update \
-    && apt install -y openjdk-11-jdk
+RUN yum update \
+    && yum install -y java-11-openjdk java-11-openjdk-devel
