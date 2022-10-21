@@ -4,5 +4,5 @@
 # Example:	./build.sh ubuntu2204 ubuntu2204.Dockerfile
 
 docker build -t $1 . -f $2
-docker tag $1
+docker tag $1 siiokoltonski/siiszkolenia:$1
 docker push siiokoltonski/siiszkolenia:$1
