@@ -1,4 +1,4 @@
-FROM centos:centos7
+FROM fedora:36
 
 ARG user=jenkins
 ARG group=jenkins
@@ -11,4 +11,4 @@ ENV JENKINS_AGENT_HOME ${JENKINS_AGENT_HOME}
 RUN groupadd -g ${gid} ${group} \
     && useradd -d "${JENKINS_AGENT_HOME}" -u "${uid}" -g "${gid}" -m -s /bin/bash "${user}"
 
-RUN yum install -y java-11-openjdk java-11-openjdk-devel
+RUN dnf install -y java-latest-openjdk.x86_64
